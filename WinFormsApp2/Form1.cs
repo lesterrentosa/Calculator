@@ -41,5 +41,25 @@ namespace WinFormsApp2
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void three_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void two_button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

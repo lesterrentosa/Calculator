@@ -17,55 +17,7 @@ namespace WinFormsApp2
             InitializeComponent();
         }
 
-        private void btn0_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn9_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -74,12 +26,12 @@ namespace WinFormsApp2
 
         private void btnCE_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnC_Click(object sender, EventArgs e)
         {
-
+            display.Text = 0.ToString();
         }
 
         private void btndot_Click(object sender, EventArgs e)
@@ -155,6 +107,12 @@ namespace WinFormsApp2
         private void btnMMinus_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNum(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            display.Text = display.Text + button.Text;
         }
     }
 }

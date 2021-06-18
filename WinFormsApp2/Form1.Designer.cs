@@ -30,7 +30,6 @@ namespace WinFormsApp2
         private void InitializeComponent()
         {
             this.btn0 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btn1 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();
@@ -58,6 +57,7 @@ namespace WinFormsApp2
             this.btnMMinus = new System.Windows.Forms.Button();
             this.btndot = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.display = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn0
@@ -69,15 +69,7 @@ namespace WinFormsApp2
             this.btn0.TabIndex = 0;
             this.btn0.Text = "0";
             this.btn0.UseVisualStyleBackColor = true;
-            this.btn0.Click += new System.EventHandler(this.btn0_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 29);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 69);
-            this.textBox1.TabIndex = 1;
+            this.btn0.Click += new System.EventHandler(this.btnNum);
             // 
             // btn1
             // 
@@ -88,7 +80,7 @@ namespace WinFormsApp2
             this.btn1.TabIndex = 2;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = true;
-            this.btn1.Click += new System.EventHandler(this.btn1_Click);
+            this.btn1.Click += new System.EventHandler(this.btnNum);
             // 
             // btn2
             // 
@@ -99,7 +91,7 @@ namespace WinFormsApp2
             this.btn2.TabIndex = 3;
             this.btn2.Text = "2";
             this.btn2.UseVisualStyleBackColor = true;
-            this.btn2.Click += new System.EventHandler(this.btn2_Click);
+            this.btn2.Click += new System.EventHandler(this.btnNum);
             // 
             // btn3
             // 
@@ -110,7 +102,7 @@ namespace WinFormsApp2
             this.btn3.TabIndex = 4;
             this.btn3.Text = "3";
             this.btn3.UseVisualStyleBackColor = true;
-            this.btn3.Click += new System.EventHandler(this.btn3_Click);
+            this.btn3.Click += new System.EventHandler(this.btnNum);
             // 
             // btn4
             // 
@@ -121,7 +113,7 @@ namespace WinFormsApp2
             this.btn4.TabIndex = 5;
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = true;
-            this.btn4.Click += new System.EventHandler(this.btn4_Click);
+            this.btn4.Click += new System.EventHandler(this.btnNum);
             // 
             // btn5
             // 
@@ -132,7 +124,7 @@ namespace WinFormsApp2
             this.btn5.TabIndex = 6;
             this.btn5.Text = "5";
             this.btn5.UseVisualStyleBackColor = true;
-            this.btn5.Click += new System.EventHandler(this.btn5_Click);
+            this.btn5.Click += new System.EventHandler(this.btnNum);
             // 
             // btn6
             // 
@@ -143,7 +135,7 @@ namespace WinFormsApp2
             this.btn6.TabIndex = 7;
             this.btn6.Text = "6";
             this.btn6.UseVisualStyleBackColor = true;
-            this.btn6.Click += new System.EventHandler(this.btn6_Click);
+            this.btn6.Click += new System.EventHandler(this.btnNum);
             // 
             // btn7
             // 
@@ -154,7 +146,7 @@ namespace WinFormsApp2
             this.btn7.TabIndex = 8;
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = true;
-            this.btn7.Click += new System.EventHandler(this.btn7_Click);
+            this.btn7.Click += new System.EventHandler(this.btnNum);
             // 
             // btn8
             // 
@@ -165,7 +157,7 @@ namespace WinFormsApp2
             this.btn8.TabIndex = 9;
             this.btn8.Text = "8";
             this.btn8.UseVisualStyleBackColor = true;
-            this.btn8.Click += new System.EventHandler(this.btn8_Click);
+            this.btn8.Click += new System.EventHandler(this.btnNum);
             // 
             // btn9
             // 
@@ -176,7 +168,7 @@ namespace WinFormsApp2
             this.btn9.TabIndex = 10;
             this.btn9.Text = "9";
             this.btn9.UseVisualStyleBackColor = true;
-            this.btn9.Click += new System.EventHandler(this.btn9_Click);
+            this.btn9.Click += new System.EventHandler(this.btnNum);
             // 
             // btnDelete
             // 
@@ -374,12 +366,25 @@ namespace WinFormsApp2
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // display
+            // 
+            this.display.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.display.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.display.Font = new System.Drawing.Font("Arial", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.display.Location = new System.Drawing.Point(12, 29);
+            this.display.Name = "display";
+            this.display.Size = new System.Drawing.Size(299, 72);
+            this.display.TabIndex = 29;
+            this.display.Text = "0";
+            this.display.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(327, 428);
+            this.Controls.Add(this.display);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btndot);
             this.Controls.Add(this.btnMMinus);
@@ -407,20 +412,17 @@ namespace WinFormsApp2
             this.Controls.Add(this.btn3);
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btn0);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "Form1";
             this.Text = "CALCULATOR";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button btn0;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Button btn2;
         private System.Windows.Forms.Button btn3;
@@ -448,6 +450,7 @@ namespace WinFormsApp2
         private System.Windows.Forms.Button btnMMinus;
         private System.Windows.Forms.Button btndot;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Label display;
     }
 }
 

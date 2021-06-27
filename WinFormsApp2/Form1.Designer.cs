@@ -58,7 +58,7 @@ namespace WinFormsApp2
             this.btndot = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.display = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.inputedLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn0
@@ -245,7 +245,7 @@ namespace WinFormsApp2
             this.btnSubtract.TabIndex = 17;
             this.btnSubtract.Text = "-";
             this.btnSubtract.UseVisualStyleBackColor = true;
-            this.btnSubtract.Click += new System.EventHandler(this.btnSubtract_Click);
+            this.btnSubtract.Click += new System.EventHandler(this.operationClick);
             // 
             // btnMultiply
             // 
@@ -256,7 +256,7 @@ namespace WinFormsApp2
             this.btnMultiply.TabIndex = 18;
             this.btnMultiply.Text = "*";
             this.btnMultiply.UseVisualStyleBackColor = true;
-            this.btnMultiply.Click += new System.EventHandler(this.btnMultiply_Click);
+            this.btnMultiply.Click += new System.EventHandler(this.operationClick);
             // 
             // btnDivide
             // 
@@ -267,7 +267,6 @@ namespace WinFormsApp2
             this.btnDivide.TabIndex = 19;
             this.btnDivide.Text = "/";
             this.btnDivide.UseVisualStyleBackColor = true;
-            this.btnDivide.Click += new System.EventHandler(this.btnDivide_Click);
             // 
             // btnPN
             // 
@@ -365,7 +364,7 @@ namespace WinFormsApp2
             this.btnAdd.TabIndex = 28;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.operationClick);
             // 
             // display
             // 
@@ -379,15 +378,15 @@ namespace WinFormsApp2
             this.display.Text = "0";
             this.display.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // label1
+            // inputedLabel
             // 
-            this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Font = new System.Drawing.Font("Arial", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(25, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(285, 28);
-            this.label1.TabIndex = 30;
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.inputedLabel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.inputedLabel.Font = new System.Drawing.Font("Arial", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.inputedLabel.Location = new System.Drawing.Point(25, 30);
+            this.inputedLabel.Name = "inputedLabel";
+            this.inputedLabel.Size = new System.Drawing.Size(285, 28);
+            this.inputedLabel.TabIndex = 30;
+            this.inputedLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // Form1
             // 
@@ -395,7 +394,7 @@ namespace WinFormsApp2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(327, 428);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.inputedLabel);
             this.Controls.Add(this.display);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btndot);
@@ -463,7 +462,7 @@ namespace WinFormsApp2
         private System.Windows.Forms.Button btndot;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label display;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label inputedLabel;
     }
 }
 

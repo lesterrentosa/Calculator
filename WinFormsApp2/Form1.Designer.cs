@@ -58,6 +58,7 @@ namespace WinFormsApp2
             this.btndot = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.display = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn0
@@ -353,7 +354,7 @@ namespace WinFormsApp2
             this.btndot.TabIndex = 27;
             this.btndot.Text = ".";
             this.btndot.UseVisualStyleBackColor = true;
-            this.btndot.Click += new System.EventHandler(this.btndot_Click);
+            this.btndot.Click += new System.EventHandler(this.btnNum);
             // 
             // btnAdd
             // 
@@ -378,12 +379,23 @@ namespace WinFormsApp2
             this.display.Text = "0";
             this.display.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Font = new System.Drawing.Font("Arial", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(25, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(285, 28);
+            this.label1.TabIndex = 30;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(327, 428);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.display);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btndot);
@@ -451,6 +463,7 @@ namespace WinFormsApp2
         private System.Windows.Forms.Button btndot;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label display;
+        private System.Windows.Forms.Label label1;
     }
 }
 

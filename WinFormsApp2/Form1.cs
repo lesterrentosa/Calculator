@@ -34,11 +34,6 @@ namespace WinFormsApp2
             display.Text = 0.ToString();
         }
 
-        private void btndot_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
@@ -111,8 +106,15 @@ namespace WinFormsApp2
 
         private void btnNum(object sender, EventArgs e)
         {
+            if (display.Text == "0")
+                display.Text = " ";
             Button button = (Button)sender;
             display.Text = display.Text + button.Text;
+        }
+
+        private void btNum(object sender, EventArgs e)
+        {
+
         }
     }
 }

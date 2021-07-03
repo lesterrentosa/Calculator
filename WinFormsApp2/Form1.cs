@@ -15,21 +15,31 @@ namespace WinFormsApp2
         Double result = 0;
         String operationDone = " ";
         bool isoperationDone = false;
+        bool btnequalsclicked = false;
         public Form1()
         {
             InitializeComponent();
         }
 
-        
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (display.Text.Length > 0)
+            {
+                display.Text = display.Text.Remove(display.Text.Length - 1, 1);
+            }
 
+            if (display.Text == "")
+            {
+                display.Text = "0";
+            }
         }
 
         private void btnCE_Click(object sender, EventArgs e)
         {
             display.Text = "0";
+            inputedLabel.Text = "";
         }
 
         private void btnC_Click(object sender, EventArgs e)
@@ -45,22 +55,29 @@ namespace WinFormsApp2
 
         private void btnSqrt_Click(object sender, EventArgs e)
         {
-
+            double sq = Double.Parse(display.Text);
+            inputedLabel.Text = System.Convert.ToString("Sqrt" + "(" + (display.Text) + ")");
+            sq = Math.Sqrt(sq);
+            display.Text = System.Convert.ToString(sq);
         }
 
         private void btnPercent_Click(object sender, EventArgs e)
         {
-
+            double a;
+            a = Convert.ToDouble(display.Text) / Convert.ToDouble(100);
+            display.Text = System.Convert.ToString(a);
         }
 
         private void btnHalf_Click(object sender, EventArgs e)
         {
-
+            double a;
+            a = Convert.ToDouble(1.0 / Convert.ToDouble(display.Text));
+            display.Text = System.Convert.ToString(a);
         }
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            switch(operationDone)
+            switch (operationDone)
             {
                 case "+":
                     display.Text = (result + Double.Parse(display.Text)).ToString();
@@ -77,6 +94,9 @@ namespace WinFormsApp2
                 default:
                     break;
             }
+            result = Double.Parse(display.Text);
+            inputedLabel.Text = "";
+            btnequalsclicked = true;
         }
 
         private void btnMC_Click(object sender, EventArgs e)
@@ -106,26 +126,39 @@ namespace WinFormsApp2
 
         private void btnNum(object sender, EventArgs e)
         {
+
             if ((display.Text == "0") || (isoperationDone))
                 display.Text = " ";
             isoperationDone = false;
-            Button button = (Button)sender;
-            if(button.Text == ".")
+           Button button = (Button)sender;
+           
+            if (button.Text == ".")
             {
-                if(!display.Text.Contains("."))
-                   display.Text = display.Text + button.Text;
-            }else
-            display.Text = display.Text + button.Text;
+                if (!display.Text.Contains("."))
+                    display.Text = display.Text + button.Text;
+            } else
+                display.Text = display.Text + button.Text;
         }
 
 
         private void operationClick(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            operationDone = button.Text;
-            result = Double.Parse(display.Text);
-            inputedLabel.Text = result + " " + operationDone;
-            isoperationDone = true;
+            if (result != 0)
+            {
+                btnEquals.PerformClick();
+                operationDone = button.Text;
+                result = Double.Parse(display.Text);
+                inputedLabel.Text = result + " " + operationDone;
+                isoperationDone = true;
+            }
+            else
+            {
+                operationDone = button.Text;
+                result = Double.Parse(display.Text);
+                inputedLabel.Text = result + " " + operationDone;
+                isoperationDone = true;
+            }
         }
     }
 }

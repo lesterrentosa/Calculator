@@ -1,7 +1,7 @@
 ﻿
 namespace WinFormsApp2
 {
-    partial class Form1
+    partial class display
     {
         /// <summary>
         ///  Required designer variable.
@@ -57,8 +57,8 @@ namespace WinFormsApp2
             this.btnMMinus = new System.Windows.Forms.Button();
             this.btndot = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.display = new System.Windows.Forms.Label();
             this.inputedLabel = new System.Windows.Forms.Label();
+            this.screen = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn0
@@ -367,36 +367,36 @@ namespace WinFormsApp2
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.operationClick);
             // 
-            // display
-            // 
-            this.display.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.display.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.display.Font = new System.Drawing.Font("Arial", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.display.Location = new System.Drawing.Point(12, 29);
-            this.display.Name = "display";
-            this.display.Size = new System.Drawing.Size(299, 72);
-            this.display.TabIndex = 29;
-            this.display.Text = "0";
-            this.display.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
             // inputedLabel
             // 
             this.inputedLabel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.inputedLabel.Font = new System.Drawing.Font("Arial", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.inputedLabel.Location = new System.Drawing.Point(25, 30);
+            this.inputedLabel.Location = new System.Drawing.Point(12, 30);
             this.inputedLabel.Name = "inputedLabel";
-            this.inputedLabel.Size = new System.Drawing.Size(285, 28);
+            this.inputedLabel.Size = new System.Drawing.Size(298, 28);
             this.inputedLabel.TabIndex = 30;
             this.inputedLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // Form1
+            // screen
+            // 
+            this.screen.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.screen.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.screen.Location = new System.Drawing.Point(12, 54);
+            this.screen.Multiline = true;
+            this.screen.Name = "screen";
+            this.screen.Size = new System.Drawing.Size(298, 30);
+            this.screen.TabIndex = 31;
+            this.screen.Text = "0";
+            this.screen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(327, 428);
+            this.Controls.Add(this.screen);
             this.Controls.Add(this.inputedLabel);
-            this.Controls.Add(this.display);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btndot);
             this.Controls.Add(this.btnMMinus);
@@ -426,9 +426,10 @@ namespace WinFormsApp2
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.btn0);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Name = "Form1";
+            this.Name = "display";
             this.Text = "CALCULATOR";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -462,8 +463,8 @@ namespace WinFormsApp2
         private System.Windows.Forms.Button btnMMinus;
         private System.Windows.Forms.Button btndot;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Label display;
         private System.Windows.Forms.Label inputedLabel;
+        private System.Windows.Forms.TextBox screen;
     }
 }
 

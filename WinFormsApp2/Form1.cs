@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace WinFormsApp2
 {
-    public partial class Form1 : Form
+    public partial class display : Form
     {
         Double result = 0;
         String operationDone = " ";
         bool isoperationDone = false;
         
-        public Form1()
+        public display()
         {
             InitializeComponent();
         }
@@ -25,56 +25,54 @@ namespace WinFormsApp2
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (display.Text.Length > 0)
+            int index = screen.Text.Length;
+            index--;
+            screen.Text = screen.Text.Remove(index);
+            if (screen.Text == string.Empty)
             {
-                display.Text = display.Text.Remove(display.Text.Length - 1, 1);
-            }
-
-            if (display.Text == "")
-            {
-                display.Text = "0";
+                screen.Text = "0";
             }
         }
 
         private void btnCE_Click(object sender, EventArgs e)
         {
-            display.Text = "0";
+            screen.Text = "0";
             inputedLabel.Text = "";
         }
 
         private void btnC_Click(object sender, EventArgs e)
         {
-            display.Text = "0";
+            screen.Text = "0";
             result = 0;
         }
 
         private void btnPN_Click(object sender, EventArgs e)
         {
-           double result = double.Parse(display.Text);
-            result = result * -1;
-            display.Text = result.ToString();
+           double sresult = double.Parse(screen.Text);
+            sresult = sresult * -1;
+            screen.Text = sresult.ToString();
         }
 
         private void btnSqrt_Click(object sender, EventArgs e)
         {
-            double sq = Double.Parse(display.Text);
-            inputedLabel.Text = System.Convert.ToString("Sqrt" + "(" + (display.Text) + ")");
+            double sq = Double.Parse(screen.Text);
+            inputedLabel.Text = System.Convert.ToString("Sqrt" + "(" + (screen.Text) + ")");
             sq = Math.Sqrt(sq);
-            display.Text = System.Convert.ToString(sq);
+            screen.Text = System.Convert.ToString(sq);
         }
 
         private void btnPercent_Click(object sender, EventArgs e)
         {
             double a;
-            a = Convert.ToDouble(display.Text) / Convert.ToDouble(100);
-            display.Text = System.Convert.ToString(a);
+            a = Convert.ToDouble(screen.Text) / Convert.ToDouble(100);
+            screen.Text = System.Convert.ToString(a);
         }
 
         private void btnHalf_Click(object sender, EventArgs e)
         {
             double a;
-            a = Convert.ToDouble(1.0 / Convert.ToDouble(display.Text));
-            display.Text = System.Convert.ToString(a);
+            a = Convert.ToDouble(1.0 / Convert.ToDouble(screen.Text));
+            screen.Text = System.Convert.ToString(a);
         }
 
         private void btnEquals_Click(object sender, EventArgs e)
@@ -82,21 +80,21 @@ namespace WinFormsApp2
             switch (operationDone)
             {
                 case "+":
-                    display.Text = (result + Double.Parse(display.Text)).ToString();
+                    screen.Text = (result + Double.Parse(screen.Text)).ToString();
                     break;
                 case "-":
-                    display.Text = (result - Double.Parse(display.Text)).ToString();
+                    screen.Text = (result - Double.Parse(screen.Text)).ToString();
                     break;
                 case "*":
-                    display.Text = (result * Double.Parse(display.Text)).ToString();
+                    screen.Text = (result * Double.Parse(screen.Text)).ToString();
                     break;
                 case "/":
-                    display.Text = (result / Double.Parse(display.Text)).ToString();
+                    screen.Text = (result / Double.Parse(screen.Text)).ToString();
                     break;
                 default:
                     break;
             }
-            result = Double.Parse(display.Text);
+            result = Double.Parse(screen.Text);
             inputedLabel.Text = "";
             
         }
@@ -129,17 +127,18 @@ namespace WinFormsApp2
         private void btnNum(object sender, EventArgs e)
         {
 
-            if ((display.Text == "0") || (isoperationDone))
-                display.Text = " ";
+            if ((screen.Text == "0") || (isoperationDone))
+                screen.Clear();            
             isoperationDone = false;
            Button button = (Button)sender;
+            
            
             if (button.Text == ".")
             {
-                if (!display.Text.Contains("."))
-                    display.Text = display.Text + button.Text;
+                if (!screen.Text.Contains("."))
+                    screen.Text = screen.Text + button.Text;
             } else
-                display.Text = display.Text + button.Text;
+                screen.Text = screen.Text + button.Text;
         }
 
 
@@ -150,14 +149,14 @@ namespace WinFormsApp2
             {
                 btnEquals.PerformClick();
                 operationDone = button.Text;
-                result = Double.Parse(display.Text);
+                result = Double.Parse(screen.Text);
                 inputedLabel.Text = result + " " + operationDone;
                 isoperationDone = true;
             }
             else
             {
                 operationDone = button.Text;
-                result = Double.Parse(display.Text);
+                result = Double.Parse(screen.Text);
                 inputedLabel.Text = result + " " + operationDone;
                 isoperationDone = true;
             }

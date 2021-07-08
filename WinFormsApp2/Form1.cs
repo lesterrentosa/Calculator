@@ -49,9 +49,13 @@ namespace WinFormsApp2
 
         private void btnPN_Click(object sender, EventArgs e)
         {
-           double sresult = double.Parse(screen.Text);
-            sresult = sresult * -1;
-            screen.Text = sresult.ToString();
+          if(screen.Text != "0")
+            {
+              double sresult = double.Parse(screen.Text);
+              sresult = sresult * -1;
+              screen.Text = sresult.ToString();
+            }
+          
         }
 
         private void btnSqrt_Click(object sender, EventArgs e)
@@ -98,6 +102,7 @@ namespace WinFormsApp2
             result = Double.Parse(screen.Text);
             inputedLabel.Text = "";
             equalclick = true;
+             
             
         }
 
@@ -135,10 +140,11 @@ namespace WinFormsApp2
            Button button = (Button)sender;
             if (equalclick)
             {
-                screen.Clear();
+                screen.Text = "";
                 equalclick = false;
-                isoperationDone = false;
-                result = 0;
+                
+
+
             }
             
 
@@ -155,9 +161,9 @@ namespace WinFormsApp2
         {
             Button button = (Button)sender;
            
-            if (result != 0)
+            if (equalclick)
             {
-                btnEquals.PerformClick();
+                
                 operationDone = button.Text;
                 result = Double.Parse(screen.Text);
                 inputedLabel.Text = result + " " + operationDone;

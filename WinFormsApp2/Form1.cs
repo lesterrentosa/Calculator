@@ -15,13 +15,14 @@ namespace WinFormsApp2
         Double result = 0;
         String operationDone = " ";
         bool isoperationDone = false;
-        
+        bool equalclick = false;
+
         public display()
         {
             InitializeComponent();
         }
 
-
+        
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -96,6 +97,7 @@ namespace WinFormsApp2
             }
             result = Double.Parse(screen.Text);
             inputedLabel.Text = "";
+            equalclick = true;
             
         }
 
@@ -131,8 +133,15 @@ namespace WinFormsApp2
                 screen.Clear();            
             isoperationDone = false;
            Button button = (Button)sender;
+            if (equalclick)
+            {
+                screen.Clear();
+                equalclick = false;
+                isoperationDone = false;
+                result = 0;
+            }
             
-           
+
             if (button.Text == ".")
             {
                 if (!screen.Text.Contains("."))
@@ -145,6 +154,7 @@ namespace WinFormsApp2
         private void operationClick(object sender, EventArgs e)
         {
             Button button = (Button)sender;
+           
             if (result != 0)
             {
                 btnEquals.PerformClick();

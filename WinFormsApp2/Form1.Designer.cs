@@ -267,6 +267,7 @@ namespace WinFormsApp2
             this.btnDivide.TabIndex = 19;
             this.btnDivide.Text = "/";
             this.btnDivide.UseVisualStyleBackColor = true;
+            this.btnDivide.Click += new System.EventHandler(this.operationClick);
             // 
             // btnPN
             // 

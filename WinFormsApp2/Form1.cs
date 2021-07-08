@@ -15,7 +15,7 @@ namespace WinFormsApp2
         Double result = 0;
         String operationDone = " ";
         bool isoperationDone = false;
-        bool btnequalsclicked = false;
+        
         public Form1()
         {
             InitializeComponent();
@@ -50,7 +50,9 @@ namespace WinFormsApp2
 
         private void btnPN_Click(object sender, EventArgs e)
         {
-
+           double result = double.Parse(display.Text);
+            result = result * -1;
+            display.Text = result.ToString();
         }
 
         private void btnSqrt_Click(object sender, EventArgs e)
@@ -96,7 +98,7 @@ namespace WinFormsApp2
             }
             result = Double.Parse(display.Text);
             inputedLabel.Text = "";
-            btnequalsclicked = true;
+            
         }
 
         private void btnMC_Click(object sender, EventArgs e)

@@ -51,6 +51,7 @@ namespace WinFormsApp2
         {
             screen.Text = "0";
             result = 0;
+            inputedLabel.Text = " ";
         }
 
         private void btnPN_Click(object sender, EventArgs e)

@@ -33,6 +33,12 @@ namespace WinFormsApp2
             {
                 screen.Text = "0";
             }
+            if(equalclick)
+            {
+                screen.Text = "0";
+
+                equalclick = false;
+            }
         }
 
         private void btnCE_Click(object sender, EventArgs e)

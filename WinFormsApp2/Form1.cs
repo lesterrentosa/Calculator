@@ -44,7 +44,7 @@ namespace WinFormsApp2
         private void btnCE_Click(object sender, EventArgs e)
         {
             screen.Text = "0";
-            inputedLabel.Text = "";
+            
         }
 
         private void btnC_Click(object sender, EventArgs e)

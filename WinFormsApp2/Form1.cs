@@ -12,17 +12,12 @@ namespace WinFormsApp2
 {
     public partial class display : Form
     {
-        Double result = 0;
-        String operationDone = " ";
-        bool isoperationDone = false;
-        bool equalclick = false;
+        Class1 calc = new Class1();
 
         public display()
         {
             InitializeComponent();
         }
-
-        
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -33,24 +28,22 @@ namespace WinFormsApp2
             {
                 screen.Text = "0";
             }
-            if(equalclick)
+            if(calc.equalclick)
             {
                 screen.Text = "0";
-
-                equalclick = false;
+                calc.equalclick = false;
             }
         }
 
         private void btnCE_Click(object sender, EventArgs e)
         {
             screen.Text = "0";
-            
         }
 
         private void btnC_Click(object sender, EventArgs e)
         {
             screen.Text = "0";
-            result = 0;
+            calc.result = 0;
             inputedLabel.Text = " ";
         }
 
@@ -62,7 +55,6 @@ namespace WinFormsApp2
               sresult = sresult * -1;
               screen.Text = sresult.ToString();
             }
-          
         }
 
         private void btnSqrt_Click(object sender, EventArgs e)
@@ -89,72 +81,42 @@ namespace WinFormsApp2
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            switch (operationDone)
+            switch (calc.operationDone)
             {
                 case "+":
-                    screen.Text = (result + Double.Parse(screen.Text)).ToString();
+                    screen.Text = (calc.result + Double.Parse(screen.Text)).ToString();
                     break;
                 case "-":
-                    screen.Text = (result - Double.Parse(screen.Text)).ToString();
+                    screen.Text = (calc.result - Double.Parse(screen.Text)).ToString();
                     break;
                 case "*":
-                    screen.Text = (result * Double.Parse(screen.Text)).ToString();
+                    screen.Text = (calc.result * Double.Parse(screen.Text)).ToString();
                     break;
                 case "/":
-                    screen.Text = (result / Double.Parse(screen.Text)).ToString();
+                    screen.Text = (calc.result / Double.Parse(screen.Text)).ToString();
                     break;
                 default:
                     break;
             }
-            result = Double.Parse(screen.Text);
+            calc.result = Double.Parse(screen.Text);
             inputedLabel.Text = "";
-            equalclick = true;
-             
-            
-        }
-
-        private void btnMC_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMR_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMS_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMPlus_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMMinus_Click(object sender, EventArgs e)
-        {
-
+            calc.equalclick = true;
+            calc.result = 0;
         }
 
         private void btnNum(object sender, EventArgs e)
         {
-
-            if ((screen.Text == "0") || (isoperationDone))
+            if ((screen.Text == "0") || (calc.isoperationDone))
                 screen.Clear();            
-            isoperationDone = false;
+            calc.isoperationDone = false;
            Button button = (Button)sender;
-            if (equalclick)
+
+            if (calc.equalclick)
             {
                 screen.Text = "";
-                equalclick = false;
-                
-
-
+                calc.equalclick = false;
             }
             
-
             if (button.Text == ".")
             {
                 if (!screen.Text.Contains("."))
@@ -168,20 +130,20 @@ namespace WinFormsApp2
         {
             Button button = (Button)sender;
            
-            if (equalclick)
+            if (calc.result !=0 )
             {
-                
-                operationDone = button.Text;
-                result = Double.Parse(screen.Text);
-                inputedLabel.Text = result + " " + operationDone;
-                isoperationDone = true;
+                btnEquals.PerformClick();
+                calc.operationDone = button.Text;
+                calc.result = Double.Parse(screen.Text);
+                inputedLabel.Text = calc.result + " " + calc.operationDone;
+                calc.isoperationDone = true;
             }
             else
             {
-                operationDone = button.Text;
-                result = Double.Parse(screen.Text);
-                inputedLabel.Text = result + " " + operationDone;
-                isoperationDone = true;
+                calc.operationDone = button.Text;
+                calc.result = Double.Parse(screen.Text);
+                inputedLabel.Text = calc.result + " " + calc.operationDone;
+                calc.isoperationDone = true;
             }
         }
     }

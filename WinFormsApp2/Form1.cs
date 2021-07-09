@@ -98,10 +98,26 @@ namespace WinFormsApp2
                 default:
                     break;
             }
-            calc.result = Double.Parse(screen.Text);
+            if (inputedLabel.Text.Contains("+"))
+            {
+                calc.result = (Double.Parse(screen.Text) + 0);
+            }
+            if (inputedLabel.Text.Contains("-"))
+            {
+                calc.result = (Double.Parse(screen.Text) + 0);
+            }
+            if (inputedLabel.Text.Contains("*"))
+            {
+
+               calc.result= (Double.Parse(screen.Text) + 0);
+            }
+            if (inputedLabel.Text.Contains("/"))
+            {
+                calc.result = (Double.Parse(screen.Text) + 0);
+            }
+            screen.Text = (calc.result).ToString();
             inputedLabel.Text = "";
             calc.equalclick = true;
-            calc.result = 0;
         }
 
         private void btnNum(object sender, EventArgs e)
@@ -125,12 +141,11 @@ namespace WinFormsApp2
                 screen.Text = screen.Text + button.Text;
         }
 
-
         private void operationClick(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-           
-            if (calc.result !=0 )
+
+            if (calc.result != 0)
             {
                 btnEquals.PerformClick();
                 calc.operationDone = button.Text;
